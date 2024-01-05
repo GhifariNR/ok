@@ -1,2 +1,5 @@
-﻿FROM gcr.io/cloud-builders/docker
-ENTRYPOINT ["sh", "-c"]
+FROM alpine:latest
+
+RUN echo "Hello World!" > /message.txt
+
+CMD ["cat", "/message.txt"]
