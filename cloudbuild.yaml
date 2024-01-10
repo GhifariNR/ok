@@ -1,4 +1,9 @@
 steps:
-- name: 'gcr.io/cloud-builders'
-  entrypoint: echo
-  args: ['Hello', 'World!']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - -c
+      - |
+        gcloud secrets versions access latest --secret="ssh-key" > /root/.ssh/id_rsa
+        chmod 400 /root/.ssh/id_rsa
+        ssh -i /root/.ssh/id_rsa ghifari_rahman@34.128.109.150 # Replace with VM's IP and username
