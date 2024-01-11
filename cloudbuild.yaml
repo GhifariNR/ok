@@ -1,5 +1,5 @@
 steps:
-  - name: 'gcr.io/cloud-builders'
+  - name: 'gcr.io/cloud-builders:latest'
     entrypoint: 'bash'
     args:
       - -c
