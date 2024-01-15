@@ -9,4 +9,4 @@ steps:
       - |
         gcloud secrets versions access latest --secret="ssh-key" > /root/.ssh/id_rsa
         chmod 400 /root/.ssh/id_rsa
-        ssh -i /root/.ssh/id_rsa ghifari_rahman@34.128.109.150 # Replace with VM's IP and username
+        ssh -i /root/.ssh/id_rsa ghifari_rahman@34.128.109.150 # Replace with VM's IP and username 
