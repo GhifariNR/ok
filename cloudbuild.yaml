@@ -1,12 +1,10 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/myimage:${SHORT_SHA}', '.']
-  - name: 'gcr.io/cloud-builders:latest'
+  - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
     args:
       - -c
       - |
-        gcloud secrets versions access latest --secret="ssh-key" > /root/.ssh/id_rsa
-        chmod 400 /root/.ssh/id_rsa
-        ssh -i /root/.ssh/id_rsa ghifari_rahman@34.128.109.150 # Replace with VM's IP and username 
+        gcloud secrets versions access 1 --secret="ssh-key-instance-bigquery"
+        # gcloud secrets versions access latest --secret="ssh-key" > /root/.ssh/id_rsa
+        # chmod 400 /root/.ssh/id_rsa
+        # ssh -i /root/.ssh/id_rsa ghifari_rahman@34.128.109.150 # Replace with VM's IP and username 
